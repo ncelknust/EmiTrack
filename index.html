@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>EmiTrack — Ghana's Oil &amp; Gas Emissions Intelligence | NCEL · KNUST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#04101c;--bg2:#071a2c;--panel:#0b2034;--panel2:#0f2840;--panel3:#14304c;--glass:rgba(17,42,66,.55);
+--line:rgba(120,170,210,.14);--line2:rgba(120,170,210,.24);--ink:#eef6fc;--ink2:#a9c0d2;--ink3:#6f8a9e;--ink4:#4d6577;
+--teal:#2dd4bf;--teal2:#14b8a6;--amber:#f6a609;--blue:#5aa0f5;--green:#34d399;--gold:#fcd34d;--red:#f0506a;--shadow:0 12px 40px rgba(0,0,0,.5);}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;
+ background-image:radial-gradient(120% 90% at 85% -10%, rgba(45,212,191,.10) 0%, transparent 45%),radial-gradient(90% 80% at -5% 10%, rgba(90,160,245,.08) 0%, transparent 50%);}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 26px}
+h1,h2,.n{font-family:'Sora',sans-serif}
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:rgba(4,16,28,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:20px;height:66px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:17px;font-family:'Sora'}
+.lm{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#2dd4bf,#0e9488);display:grid;place-items:center;box-shadow:0 4px 14px rgba(45,212,191,.3)}
+.brand small{display:block;font-size:10px;font-weight:600;color:var(--ink3);letter-spacing:.4px;font-family:'Inter'}
+.verchip{font-size:11px;font-weight:700;color:#042a24;background:var(--teal);padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:4px}
+.nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:13.5px;color:var(--ink2);font-weight:600}
+.nav-links a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;border-radius:11px;cursor:pointer;border:1px solid transparent;padding:11px 19px;transition:.15s;font-family:'Inter'}
+.btn svg{width:17px;height:17px}
+.btn-p{background:linear-gradient(135deg,var(--teal2),var(--teal));color:#042a24;box-shadow:0 6px 18px rgba(45,212,191,.22)}
+.btn-p:hover{filter:brightness(1.08)}
+.btn-o{background:var(--panel2);color:var(--ink);border-color:var(--line2)}
+.btn-o:hover{border-color:var(--teal);color:var(--teal)}
+.btn-sm{padding:8px 15px;font-size:13px}
+/* hero */
+.hero{padding:70px 0 46px}
+.hero-in{display:grid;grid-template-columns:1.55fr .82fr;gap:44px;align-items:center}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr;gap:32px}}
+.pillline{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(16px,1.7vw,23px);margin:18px 0 4px;letter-spacing:.01em}
+.flagdot{display:inline-flex;gap:3px;margin-right:9px;vertical-align:middle}
+.flagdot i{width:8px;height:8px;border-radius:50%}
+.flagdot .r{background:#ce1126}.flagdot .y{background:#fcd116}.flagdot .g{background:#0e7c4a}
+.eyebrow{display:inline-flex;align-items:center;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:20px}
+h1.hh{font-family:'Sora',sans-serif;font-size:clamp(26px,2.95vw,38px);line-height:1.15;letter-spacing:-.02em;font-weight:800;margin:4px 0 2px}
+h1.hh .hl{color:var(--teal)}
+.sub{font-size:17px;line-height:1.62;color:var(--ink2);margin:18px 0 28px;max-width:54ch}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 0;font-size:12.5px;color:var(--ink2)}
+.hero-meta span{padding:0 16px;border-right:1px solid var(--line);line-height:1.1}
+.hero-meta span:first-child{padding-left:0}
+.hero-meta span:last-child{border-right:none;padding-right:0}
+.hero-meta b{color:var(--ink);font-family:'Sora'}
+/* snapshot */
+.snap{background:linear-gradient(180deg,var(--panel2),rgba(7,26,44,.6));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px;font-size:.92em}
+.snap .sh{display:flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--ink3);margin-bottom:16px;text-transform:uppercase}
+.snap .sh .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(45,212,191,.16)}
+.snap .big{font-family:'Sora';font-size:52px;font-weight:800;line-height:1}
+.snap .big small{font-size:18px;color:var(--ink2);font-weight:700}
+.snap .cap{font-size:11.5px;color:var(--ink3);margin:6px 0 18px;line-height:1.5}
+.bars .b{display:grid;grid-template-columns:74px 1fr 46px;align-items:center;gap:9px;font-size:12px;margin:9px 0}
+.bars .b .nm{color:var(--ink2);font-weight:600}
+.bars .b .tr{height:9px;background:var(--panel3);border-radius:5px;overflow:hidden}
+.bars .b .tr i{display:block;height:100%;border-radius:5px}
+.bars .b .vv{text-align:right;font-weight:800;color:var(--ink);font-family:'Sora'}
+/* sections */
+section.blk{padding:60px 0}
+.ey2{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);text-align:center}
+h2{font-size:clamp(24px,3vw,33px);font-weight:800;text-align:center;margin:8px 0 10px;letter-spacing:-.02em}
+.lead{font-size:15.5px;color:var(--ink2);text-align:center;max-width:64ch;margin:0 auto 36px;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:840px){.cards{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--glass),rgba(7,26,44,.5));border:1px solid var(--line);border-radius:16px;padding:24px;transition:.16s}
+.card:hover{border-color:var(--line2);transform:translateY(-2px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:rgba(45,212,191,.12);display:grid;place-items:center;margin-bottom:15px}
+.card .ic svg{width:24px;height:24px;stroke:var(--teal)}
+.card h3{font-size:16.5px;margin:0 0 7px;font-weight:700}
+.card p{font-size:13.5px;color:var(--ink2);margin:0;line-height:1.55}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:st}
+@media(max-width:840px){.steps{grid-template-columns:1fr}}
+.step{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative}
+.step::before{counter-increment:st;content:counter(st);position:absolute;top:-15px;left:24px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal2),var(--teal));color:#042a24;display:grid;place-items:center;font-weight:800;font-size:15px;font-family:'Sora'}
+.step h3{font-size:16px;margin:10px 0 6px}
+.step p{font-size:13.5px;color:var(--ink2);margin:0;line-height:1.5}
+.findings{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:840px){.findings{grid-template-columns:1fr}}
+.finding{background:linear-gradient(160deg,rgba(45,212,191,.10),rgba(7,26,44,.5));border:1px solid rgba(45,212,191,.22);border-radius:16px;padding:26px}
+.finding .n{font-size:34px;font-weight:800;color:var(--teal);line-height:1;font-family:'Sora'}
+.finding .t{font-size:13px;color:var(--ink2);margin-top:9px;line-height:1.5}
+.ctaband{background:linear-gradient(120deg,#0c3a34,#0f2840);border:1px solid var(--line2);border-radius:22px;padding:46px;text-align:center;box-shadow:var(--shadow)}
+.ctaband p{color:var(--ink2);max-width:56ch;margin:8px auto 24px;font-size:15px}
+footer{padding:44px 0;border-top:1px solid var(--line);margin-top:24px;font-size:12.5px;color:var(--ink3)}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer b{color:var(--ink2)}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="brand" href="index.html"><span class="lm"><svg viewBox="0 0 40 40" width="22" height="22" fill="none"><path d="M7 26 L15 19 L21 23 L33 12" stroke="#042a24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33" cy="12" r="3.4" fill="#042a24"/><circle cx="33" cy="12" r="1.6" fill="#fcd34d"/><circle cx="7" cy="26" r="2.4" fill="#042a24"/></svg></span><div>EmiTrack<span class="verchip">v4</span><small>NCEL · KNUST</small></div></a>
+  <div class="nav-links">
+    <a href="#features">Platform</a><a href="#how">How it works</a><a href="#findings">Findings</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="eyebrow"><span class="flagdot"><i class="r"></i><i class="y"></i><i class="g"></i></span>Petroleum Commission of Ghana · NCEL · KNUST</span>
+    <h1 class="hh">A national digital platform for operational emissions management in the <span class="hl">Upstream Oil and Gas Sector.</span></h1>
+    <div class="pillline"><span style="color:var(--teal)">Measurement.</span> <span style="color:var(--amber)">Benchmarking.</span> <span style="color:var(--blue)">Decision Support.</span></div>
+    <div class="hero-btns">
+      <a class="btn btn-p" href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="#042a24" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Explore the dashboard</a>
+      <a class="btn btn-o" href="dashboard.html#lab" onclick="sessionStorage.setItem('emitrack_go','lab')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Launch Scenario Lab</a>
+    </div>
+    <div class="hero-meta"><span><b>2018–Q1 2026</b> · 27 field-years</span><span><b>3</b> deepwater FPSOs</span><span><b>12</b> emission sources</span><span><b>40,000</b> Monte-Carlo draws</span></div>
+   </div>
+  <div class="snap">
+    <div class="sh"><span class="dot"></span> National snapshot · 2018–Q1 2026</div>
+    <div class="big" style="color:var(--ink)">82 <small>kt CH₄</small></div>
+    <div class="cap">Cumulative fugitive &amp; vented methane across the three FPSOs · ≈2.5 Mt CO₂e (GWP₁₀₀ = 29.8)</div>
+    <div class="bars">
+      <div class="b"><span class="nm">Jubilee</span><span class="tr"><i style="width:100%;background:#2dd4bf"></i></span><span class="vv">41.5</span></div>
+      <div class="b"><span class="nm">TEN</span><span class="tr"><i style="width:60%;background:#f6a609"></i></span><span class="vv">24.9</span></div>
+      <div class="b"><span class="nm">OCTP/SGN</span><span class="tr"><i style="width:38%;background:#5aa0f5"></i></span><span class="vv">15.9</span></div>
+    </div>
+    <div class="cap" style="margin-top:16px;border-top:1px solid var(--line);padding-top:14px">Flaring is the dominant source at every facility (60–80%). Carbon intensity beats the most comparable offshore benchmarks.</div>
+  </div>
+  </div>
+</div></header>
+
+<section class="blk" id="features"><div class="wrap">
+  <div class="ey2">The platform</div>
+  <h2>Everything the Commission needs, in one interface</h2>
+  <p class="lead">Ten analytical views and a live Scenario Lab in a single interface — requiring no technical training, and resting entirely on data the Commission already holds.</p>
+  <div class="cards">
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Source-resolved inventory</h3><p>Each facility's methane split across twelve process sources with uncertainty bounds — showing where emissions originate and where to act.</p></div>
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M6 20V10M12 20V4M18 20v-7"/></svg></div><h3>Global benchmarking</h3><p>Carbon intensity on a saleable-energy basis, set against airborne Angola, the US Gulf of Mexico and the global crude average.</p></div>
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg></div><h3>Measurement roadmap</h3><p>A value-of-information ranking that names the single highest-value measurement for each facility — a costed basis for national monitoring.</p></div>
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2v6m0 0a4 4 0 014 4c0 3-4 8-4 8s-4-5-4-8a4 4 0 014-4z"/></svg></div><h3>Least-cost abatement</h3><p>Flare combustion-efficiency repair identified as the lowest-cost, highest-impact lever at ≈US$12 per tonne CO₂e.</p></div>
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div><h3>Live Scenario Lab</h3><p>Choose a field and adjust flaring, flare efficiency and production; carbon intensity, methane and the source mix update instantly — in a Simple mode for quick answers or an Advanced mode for full uncertainty.</p></div>
+    <div class="card"><div class="ic"><svg fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Updatable &amp; transferable</h3><p>Load new production returns to recompute in-browser. The framework transfers to any basin holding routine regulator data.</p></div>
+  </div>
+</div></section>
+
+<section class="blk" id="how" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,26,44,.35)"><div class="wrap">
+  <div class="ey2">How it works</div>
+  <h2>From regulator data to decision</h2>
+  <p class="lead">The platform rests on data the Commission already holds — no new instrumentation is required to begin.</p>
+  <div class="steps">
+    <div class="step"><h3>Metered production in</h3><p>Monthly field-aggregated returns — oil, gas, flare, fuel and export volumes — the auditable record the Commission already receives.</p></div>
+    <div class="step"><h3>Physics + uncertainty</h3><p>A validated twelve-source operator maps activity to methane and intensity, with a 40,000-draw Monte-Carlo propagating every uncertainty.</p></div>
+    <div class="step"><h3>Intelligence out</h3><p>Benchmarked intensity, a ranked measurement roadmap, least-cost abatement and forward scenarios — all interactive and re-runnable.</p></div>
+  </div>
+</div></section>
+
+<section class="blk" id="findings"><div class="wrap">
+  <div class="ey2">Headline findings</div>
+  <h2>What the study establishes</h2>
+  <p class="lead">A defensible national baseline that positions Ghana's deepwater production favourably — and shows exactly how to keep it there.</p>
+  <div class="findings">
+    <div class="finding"><div class="n">1.9–2.6</div><div class="t">Jubilee and OCTP/SGN carbon intensity (g CO₂e MJ⁻¹) — below the airborne Angola estimate (3.6), the US Gulf of Mexico (~7) and the global crude average (10.3).</div></div>
+    <div class="finding"><div class="n">60–80%</div><div class="t">of facility methane comes from flaring — a single dominant source that is also the cheapest to address and the highest-value to measure.</div></div>
+    <div class="finding"><div class="n">~78 kt</div><div class="t">of methane avoidable to 2040 under disciplined gas management — a concrete, low-carbon growth story for investors.</div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap foot-in">
+  <div><b>EmiTrack v4</b> — Ghana's Oil &amp; Gas Emissions Intelligence Platform<br/>Net-Zero Carbon Emission Lab (NCEL) · College of Engineering, KNUST<br/>Prepared for the Petroleum Commission of Ghana · July 2026</div>
+  <div style="text-align:right"><b>Principal Investigator</b><br/>Dr. Yen Adams Sokama-Neuyam<br/>asokama@knust.edu.gh · +233 24 593 7358</div>
+</div></footer>
+</body>
+</html>
